@@ -1,5 +1,4 @@
-
-
+spring:
   cloud:
     gateway:
       routes:
@@ -17,13 +16,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-      spring:
-  boot:
-    admin:
-      client:
-        url: http://localhost:9090
 
-        management:
+management:
   endpoints:
     web:
       exposure:
@@ -40,3 +34,9 @@ eureka:
   zipkin:
     tracing:
       endpoint: http://localhost:9411/api/v2/spans
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
