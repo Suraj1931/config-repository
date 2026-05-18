@@ -4,12 +4,12 @@
     gateway:
       routes:
         - id: user-service
-          uri: lb://userservice
+          uri: lb://userService
           predicates:
             - Path=/user/**
 
         - id: order-service
-          uri: lb://orderservice
+          uri: lb://orderService
           predicates:
             - Path=/order/**
 
