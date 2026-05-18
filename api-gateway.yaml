@@ -12,6 +12,11 @@ spring:
           predicates:
             - Path=/order/**
 
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+
 eureka:
   client:
     service-url:
@@ -34,9 +39,3 @@ management:
   zipkin:
     tracing:
       endpoint: http://localhost:9411/api/v2/spans
-
-spring:
-  boot:
-    admin:
-      client:
-        url: http://localhost:9090
