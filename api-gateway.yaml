@@ -9,7 +9,7 @@ spring:
     gateway:
       routes:
         - id: user-service
-          uri: lb://USERSERVICE
+          uri: lb://USER-SERVICE
           predicates:
             - Path=/user/**
           filters:
@@ -20,7 +20,7 @@ spring:
                 fallbackUri: forward:/fallback/user
 
         - id: order-service
-          uri: lb://ORDERSERVICE
+          uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order/**
           filters:
