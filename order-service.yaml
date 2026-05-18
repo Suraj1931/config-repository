@@ -2,10 +2,10 @@ spring:
   application:
     name: order-service
 
-  boot:
-    admin:
-      client:
-        url: http://localhost:9090
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
 management:
   endpoints:
@@ -13,31 +13,14 @@ management:
       exposure:
         include: "*"
 
-  endpoint:
-    health:
-      show-details: always
-
+zipkin:
   tracing:
-    sampling:
-      probability: 1.0
-
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+    endpoint: http://localhost:9411/api/v2/spans
 
 resilience4j:
   circuitbreaker:
     instances:
-      userServiceCB:
-        registerHealthIndicator: true
+      orderServiceCB:
         slidingWindowSize: 10
         minimumNumberOfCalls: 5
         failureRateThreshold: 50
-        waitDurationInOpenState: 10s
-        permittedNumberOfCallsInHalfOpenState: 3
-        automaticTransitionFromOpenToHalfOpenEnabled: true
