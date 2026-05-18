@@ -1,9 +1,5 @@
 
 
-spring:
-  application:
-    name: userservice
-
 eureka:
   client:
     service-url:
