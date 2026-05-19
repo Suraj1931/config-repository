@@ -18,9 +18,6 @@ spring:
           predicates:
             - Path=/order/**
 
-          filters:
-            - StripPrefix=1
-
       discovery:
         locator:
           enabled: true
