@@ -5,17 +5,16 @@ spring:
  spring:
   cloud:
     gateway:
-      webflux:
-        routes:
-          - id: user-service
-            uri: lb://USER-SERVICE
-            predicates:
-              - Path=/user/**
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
 
-          - id: order-service
-            uri: lb://ORDER-SERVICE
-            predicates:
-              - Path=/order/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/**
 
       discovery:
         locator:
