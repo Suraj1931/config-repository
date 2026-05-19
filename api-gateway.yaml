@@ -10,13 +10,17 @@ spring:
           predicates:
             - Path=/user/**
 
+          filters:
+            - StripPrefix=1
+
         - id: order-service
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order/**
 
-  cloud:
-    gateway:
+          filters:
+            - StripPrefix=1
+
       discovery:
         locator:
           enabled: true
